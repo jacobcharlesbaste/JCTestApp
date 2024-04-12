@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+.filter-container {
+    position: relative;
+}
+  
+.filter-container input[type="text"] {
+    position: absolute;
+    width: 100%;
+  }
+  

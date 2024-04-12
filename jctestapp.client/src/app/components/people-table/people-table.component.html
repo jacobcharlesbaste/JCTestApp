@@ -1,0 +1,44 @@
+<table class="table">
+    <thead>
+        <tr>
+          <th>
+            <div class="filter-container">
+                Name
+                <button class="btn btn-link" (click)="sortBy('name')">
+                    <i [ngClass]="sortOrder === 'asc' ? 'bi bi-arrow-up' : 'bi bi-arrow-down'"></i>
+                </button>
+                <button class="btn btn-link" (click)="toggleNameFilter()">
+                    <i class="bi bi-filter"></i>
+                </button>
+                <input class="form-control d-inline-block w-25" type="text" placeholder="Search" [(ngModel)]="filters.name" *ngIf="showNameFilter" (ngModelChange)="applyFilters()">
+            </div>
+          </th>
+          <th>
+            <div class="filter-container">
+                Email
+                <button class="btn btn-link" (click)="toggleEmailFilter()">
+                    <i class="bi bi-filter"></i>
+                </button>
+                <input class="form-control d-inline-block w-25" type="text" placeholder="Search" [(ngModel)]="filters.email" *ngIf="showEmailFilter" (ngModelChange)="applyFilters()">
+            </div>
+          </th>
+          <th>
+            <div class="filter-container">
+                Gender
+                <button class="btn btn-link" (click)="toggleGenderFilter()">
+                    <i class="bi bi-filter"></i>
+                </button>
+                <input class="form-control d-inline-block w-25" type="text" placeholder="Search" [(ngModel)]="filters.gender" *ngIf="showGenderFilter" (ngModelChange)="applyFilters()">
+            </div>
+          </th>
+        </tr>
+      </thead>
+    <tbody>
+      <tr *ngFor="let person of filteredData">
+        <td>{{ person.name }}</td>
+        <td>{{ person.email }}</td>
+        <td>{{ person.gender }}</td>
+      </tr>
+    </tbody>
+  </table>
+  
